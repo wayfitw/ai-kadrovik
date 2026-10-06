@@ -1,0 +1,6 @@
+# Test stand: daily Postgres backup at 02:10 UTC, log to /var/log/kadrovik-backup.log.
+# Install:  sudo crontab -u deploy deploy/crontab.example   (after editing paths)
+PROJECT_DIR=/opt/kadrovik
+BACKUP_DIR=/var/backups/kadrovik
+KEEP_DAYS=14
+10 2 * * * /bin/bash /opt/kadrovik/deploy/backup-postgres.sh >> /var/log/kadrovik-backup.log 2>&1
